@@ -321,6 +321,7 @@ function _customize(source, dest, app, owner, boilerlib) {
   pack.unpkg = `_dist/lib/${app.toLowerCase()}.mjs`;
   pack.module = `_dist/lib/${app.toLowerCase()}.min.mjs`;
   pack.bin = {};
+  pack.type = 'module';
 
   pack.scripts = obj.scripts;
   pack.scripts['check:coverage'] = 'c8 check-coverage --statements 100 --branches 100 --functions 100 --lines 100';

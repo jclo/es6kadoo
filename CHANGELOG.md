@@ -3,6 +3,7 @@
 ### 3.0.0 (May, 14, 2026)
 
   * Updated the project to comply with ESM,
+  * Fixed an issue in bin/es6kadoo.js,
   * ...,
 
 
