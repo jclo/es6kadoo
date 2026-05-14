@@ -36,24 +36,17 @@
  * @since        0.0.0
  * @version      -
  * ********************************************************************** */
-/* global root */
-/* eslint-disable one-var, semi-style, no-underscore-dangle */
 
 
 // -- Vendor Modules
 
 
 // -- Local Modules
-import Util from './util/util';
+import Util from './util/util.js';
 
 
 // -- Local Constants
-// Saves the previous value of the library variable, so that it can be
-// restored later on, if noConflict is used.
-const previousES6Kadoo = root.ES6Kadoo
-    , obj = {}
-    ;
-
+const obj = {};
 
 // -- Local Variables
 
@@ -81,6 +74,10 @@ const ES6Kadoo = function() {
 // Attaches constants to ES6Kadoo that provide name and version of the lib.
 ES6Kadoo.NAME = '{{lib:name}}';
 ES6Kadoo.VERSION = '{{lib:version}}';
+
+// Saves the previous value of the library variable, so that it can be
+// restored later on, if noConflict is used.
+const previousES6Kadoo = globalThis.ES6Kadoo;
 
 
 // -- Private Static Methods -----------------------------------------------
@@ -117,8 +114,7 @@ ES6Kadoo._setTestMode = function() {
  * @since 0.0.0
  */
 ES6Kadoo.noConflict = function() {
-  /* eslint-disable-next-line no-param-reassign */
-  root.ES6Kadoo = previousES6Kadoo;
+  globalThis.ES6Kadoo = previousES6Kadoo;
   return this;
 };
 
@@ -170,5 +166,3 @@ obj.getArray = function() {
 
 // -- Export
 export default ES6Kadoo;
-
-/* eslint-enable one-var, semi-style, no-underscore-dangle */

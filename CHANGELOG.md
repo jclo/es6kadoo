@@ -1,5 +1,11 @@
 ### HEAD
 
+### 3.0.0 (May, 14, 2026)
+
+  * Updated the project to comply with ESM,
+  * ...,
+
+
 ### 2.2.1 (July 23, 2024)
 
   * Readded lost bin/es6kadoo.js script,

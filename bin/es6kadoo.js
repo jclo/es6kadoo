@@ -8,7 +8,7 @@
  *
  * The MIT License (MIT)
  *
- * Copyright (c) 2024 Mobilabs <contact@mobilabs.fr> (http://www.mobilabs.fr)
+ * Copyright (c) 2026 Mobilabs <contact@mobilabs.fr> (http://www.mobilabs.fr)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,24 +32,27 @@
 
 
 // -- Vendor Modules
-const fs    = require('fs')
-    , nopt  = require('nopt')
-    , path  = require('path')
-    , shell = require('shelljs')
-    ;
+import fs from 'fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+import nopt from 'nopt';
+import path from 'path';
+import shell from 'shelljs';
 
 
 // -- Local Modules
+import pack from '../package.json' with { type: 'json' };
 
 
 // -- Local Constants
 const defBoilerLib  = 'ES6Kadoo'
-    /* eslint-disable-next-line object-curly-newline */
+    , __filename = fileURLToPath(import.meta.url)
+    , __dirname = dirname(__filename)
     , defAuthor   = { name: 'John Doe', acronym: 'jdo', email: 'jdo@johndoe.com', url: 'http://www.johndoe.com' }
     , copyright   = `Copyright (c) ${new Date().getFullYear()} {{author:name}} <{{author:email}}> ({{author:url}})`
     , baseapp     = process.cwd()
     , baseboiler  = __dirname.replace('/bin', '')
-    , { version } = require('../package.json')
+    , { version } = pack
     , src         = 'src'
     , test        = 'test'
     , scripts     = 'scripts'
@@ -140,7 +143,8 @@ const changelog = [
 ].join('\n');
 
 const index = [
-  "module.exports = require('./lib/{{lib:lowname}}');",
+  "import {{lib:name}} from './lib/{{lib:lowname}}.mjs';",
+  "export default {{lib:name}};",
   '',
 ].join('\n');
 
@@ -259,7 +263,7 @@ function _addSkeleton(base, app, owner, cright) {
   let s;
   for (let i = 0; i < newFiles[0].length; i++) {
     input = newFiles[0][i]
-      .replace('{{lib:name}}', app)
+      .replace(/{{lib:name}}/g, app)
       .replace('{{lib:lowname}}', app.toLowerCase())
       .replace('{{lib:copyright}}', cright)
       .replace('{{author:name}}', owner.name)
@@ -283,7 +287,7 @@ function _addSkeleton(base, app, owner, cright) {
  * @returns {}              -,
  */
 function _duplicate(source, dest) {
-  const dupFiles = ['.eslintrc', 'rmdstore.sh'];
+  const dupFiles = ['eslint.config.js', 'rmdstore.sh'];
 
   for (let i = 0; i < dupFiles.length; i++) {
     process.stdout.write(`  copied ${dupFiles[i]}\n`);

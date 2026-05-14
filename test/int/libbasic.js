@@ -4,8 +4,7 @@
 
 
 // -- Vendor Modules
-const { expect } = require('chai')
-    ;
+import { expect } from 'chai';
 
 
 // -- Local Modules
@@ -22,7 +21,7 @@ const OWNPROPS = 2
 
 
 // -- Main
-module.exports = function(ES6Kadoo, libname, version) {
+export default function(ES6Kadoo, libname, version) {
   describe('ES6Kadoo introspection:', () => {
     describe('Test the nature of ES6Kadoo:', () => {
       it('Expects ES6Kadoo to be an object.', () => {

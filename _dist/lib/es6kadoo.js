@@ -3,7 +3,7 @@
  *
  * A template for writing pure ES6 Javascript libraries.
  * (you can download it from npm or github repositories)
- * Copyright (c) 2024 Mobilabs <contact@mobilabs.fr> (https://www.mobilabs.fr).
+ * Copyright (c) 2026 Mobilabs <contact@mobilabs.fr> (https://www.mobilabs.fr).
  * Released under the MIT license. You may obtain a copy of the License
  * at: http://www.opensource.org/licenses/mit-license.php).
  * Built from {{boiler:name}} v{{boiler:name:version}}.
@@ -86,8 +86,6 @@
      * @since        0.0.0
      * @version      -
      * ********************************************************************** */
-    /* - */
-    /* eslint-disable one-var, semi-style, no-underscore-dangle */
 
 
     // -- Vendor Modules
@@ -98,15 +96,9 @@
 
 
     // -- Local Constants
-    // Saves the previous value of the library variable, so that it can be
-    // restored later on, if noConflict is used.
-    const previousES6Kadoo = root.ES6Kadoo
-        ;
 
 
     // -- Local Variables
-    let methods
-      ;
 
 
     // -- Public ---------------------------------------------------------------
@@ -133,6 +125,10 @@
     // Attaches constants to ES6Kadoo that provide name and version of the lib.
     ES6Kadoo.NAME = 'ES6Kadoo';
     ES6Kadoo.VERSION = '2.2.1';
+
+    // Saves the previous value of the library variable, so that it can be
+    // restored later on, if noConflict is used.
+    const previousES6Kadoo = globalThis.ES6Kadoo;
 
 
     // -- Private Static Methods -----------------------------------------------
@@ -169,15 +165,14 @@
      * @since 0.0.0
      */
     ES6Kadoo.noConflict = function() {
-      /* eslint-disable-next-line no-param-reassign */
-      root.ES6Kadoo = previousES6Kadoo;
+      globalThis.ES6Kadoo = previousES6Kadoo;
       return this;
     };
 
 
     // -- Public Methods -------------------------------------------------------
 
-    methods = {
+    const methods = {
 
       /**
        * Returns the library name and version.
@@ -225,8 +220,6 @@
 
     // -- Export
     $__TREE.src.prototypal = ES6Kadoo;
-
-    /* eslint-enable one-var, semi-style, no-underscore-dangle */
   }());
 
   /* index: 2, path: 'src/util/util.js', import: [] */

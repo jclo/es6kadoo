@@ -28,21 +28,16 @@
  * @since        0.0.0
  * @version      -
  * ********************************************************************** */
-/* global root */
-/* eslint-disable no-underscore-dangle */
 
 
 // -- Vendor Modules
 
 
 // -- Local Modules
-import Util from './util/util';
+import Util from './util/util.js';
 
 
 // -- Local Constants
-// Saves the previous value of the library variable, so that it can be
-// restored later on, if noConflict is used.
-const previousES6Kadoo = root.ES6Kadoo;
 
 
 // -- Local Variables
@@ -91,8 +86,7 @@ const ES6Kadoo = {
    * @since 0.0.0
    */
   noConflict() {
-    /* eslint-disable-next-line no-param-reassign */
-    root.ES6Kadoo = previousES6Kadoo;
+    globalThis.ES6Kadoo = previousES6Kadoo;
     return this;
   },
 
@@ -143,8 +137,10 @@ const ES6Kadoo = {
 ES6Kadoo.NAME = '{{lib:name}}';
 ES6Kadoo.VERSION = '{{lib:version}}';
 
+// Saves the previous value of the library variable, so that it can be
+// restored later on, if noConflict is used.
+const previousES6Kadoo = globalThis.ES6Kadoo;
+
 
 // -- Export
 export default ES6Kadoo;
-
-/* eslint-enable no-underscore-dangle */
