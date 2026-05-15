@@ -28,7 +28,8 @@
  * @since        0.0.0
  * @version      -
  * ********************************************************************** */
-
+/* global root */
+/* - */
 
 // -- Vendor Modules
 
@@ -86,7 +87,7 @@ const ES6Kadoo = {
    * @since 0.0.0
    */
   noConflict() {
-    globalThis.ES6Kadoo = previousES6Kadoo;
+    root.ES6Kadoo = previousES6Kadoo;
     return this;
   },
 
@@ -139,8 +140,10 @@ ES6Kadoo.VERSION = '{{lib:version}}';
 
 // Saves the previous value of the library variable, so that it can be
 // restored later on, if noConflict is used.
-const previousES6Kadoo = globalThis.ES6Kadoo;
+const previousES6Kadoo = root.ES6Kadoo;
 
 
 // -- Export
 export default ES6Kadoo;
+
+/* - */

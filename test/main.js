@@ -20,6 +20,9 @@ const libname = 'ES6Kadoo';
 
 // -- Main
 
+// This define root for Node.js:
+global.root = {};
+
 // Nota:
 // If you want that 'display-coverage' shows the coverage files by files,
 // you should set 'ES6Kadoo' and 'testlib' like this:
@@ -31,8 +34,8 @@ const libname = 'ES6Kadoo';
 //  . import ES6Kadoo from '../index.js';
 //  . testlib(ES6Kadoo, libname, pack.version, 'without new');
 
-import ES6Kadoo from '../src/prototypal.js';
-// import ES6Kadoo from '../index.js';
+const ES6Kadoo = (await import('../src/prototypal.js')).default;
+// const ES6Kadoo (await import('../index.js')).default;
 
 describe('Test ES6Kadoo:', () => {
   testlib(ES6Kadoo, '{{lib:name}}', '{{lib:version}}', 'without new');

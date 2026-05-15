@@ -1,5 +1,5 @@
 /*! ****************************************************************************
- * ES6Kadoo v3.0.0-beta.1.1
+ * ES6Kadoo v3.0.0-beta.1.2
  *
  * A template for writing pure ES6 Javascript libraries.
  * (you can download it from npm or github repositories)
@@ -86,6 +86,8 @@
      * @since        0.0.0
      * @version      -
      * ********************************************************************** */
+    /* - */
+    /* - */
 
 
     // -- Vendor Modules
@@ -117,18 +119,18 @@
       const obj = Object.create(methods);
       obj._library = {
         name: 'ES6Kadoo',
-        version: '3.0.0-beta.1.1',
+        version: '3.0.0-beta.1.2',
       };
       return obj;
     };
 
     // Attaches constants to ES6Kadoo that provide name and version of the lib.
     ES6Kadoo.NAME = 'ES6Kadoo';
-    ES6Kadoo.VERSION = '3.0.0-beta.1.1';
+    ES6Kadoo.VERSION = '3.0.0-beta.1.2';
 
     // Saves the previous value of the library variable, so that it can be
     // restored later on, if noConflict is used.
-    const previousES6Kadoo = globalThis.ES6Kadoo;
+    const previousES6Kadoo = root.ES6Kadoo;
 
 
     // -- Private Static Methods -----------------------------------------------
@@ -165,7 +167,7 @@
      * @since 0.0.0
      */
     ES6Kadoo.noConflict = function() {
-      globalThis.ES6Kadoo = previousES6Kadoo;
+      root.ES6Kadoo = previousES6Kadoo;
       return this;
     };
 
@@ -220,6 +222,8 @@
 
     // -- Export
     $__TREE.src.prototypal = ES6Kadoo;
+
+    /* - */
   }());
 
   /* index: 2, path: 'src/util/util.js', import: [] */
@@ -250,7 +254,7 @@
      * @version      -
      * ********************************************************************** */
     /* - */
-    /* eslint-disable no-underscore-dangle */
+    /* - */
 
 
     // -- Vendor Modules
@@ -329,7 +333,7 @@
     // -- Export
     $__TREE.extend($__TREE.src.util.util, Util);
 
-    /* eslint-enable no-underscore-dangle */
+    /* - */
   }());
 
 

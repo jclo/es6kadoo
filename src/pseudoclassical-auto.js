@@ -37,6 +37,8 @@
  * @since        0.0.0
  * @version      -
  * ********************************************************************** */
+/* global root */
+/* - */
 
 
 // -- Vendor Modules
@@ -82,7 +84,7 @@ ES6Kadoo.VERSION = '{{lib:version}}';
 
 // Saves the previous value of the library variable, so that it can be
 // restored later on, if noConflict is used.
-const previousES6Kadoo = globalThis.ES6Kadoo;
+const previousES6Kadoo = root.ES6Kadoo;
 
 
 // -- Private Static Methods -----------------------------------------------
@@ -119,7 +121,7 @@ ES6Kadoo._setTestMode = function() {
  * @since 0.0.0
  */
 ES6Kadoo.noConflict = function() {
-  globalThis.ES6Kadoo = previousES6Kadoo;
+  root.ES6Kadoo = previousES6Kadoo;
   return this;
 };
 
@@ -174,3 +176,5 @@ ES6Kadoo.prototype = {
 
 // -- Export
 export default ES6Kadoo;
+
+/* - */
