@@ -1,10 +1,11 @@
 ### HEAD
 
-### 3.0.0 (May, 15, 2026)
+### 3.0.0 (May, 18, 2026)
 
   * Updated the project to comply with ESM,
   * Fixed an issue in bin/es6kadoo.js,
   * Back to root (remove globalThis),
+  * Cleaned up the ESlint directives,
   * ...,
 
 
