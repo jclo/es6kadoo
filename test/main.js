@@ -26,7 +26,7 @@ global.root = {};
 // Nota:
 // If you want that 'display-coverage' shows the coverage files by files,
 // you should set 'ES6Kadoo' and 'testlib' like this:
-//  . const ES6Kadoo = require('../src/<file>').default;
+//  . const ES6Kadoo = (await import('../src/prototypal.js')).default;
 //  . testlib(ES6Kadoo, '{{lib:name}}', '{{lib:version}}', 'without new');
 //
 // But, if you want that 'display-coverage' shows the coverage in one file,
