@@ -30,7 +30,7 @@
 
 
 // -- Vendor Modules
-import fs from 'fs';
+import fs from 'node:fs';
 import nopt from 'nopt';
 import Kadoo from 'kadoo';
 

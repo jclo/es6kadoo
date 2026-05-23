@@ -1,6 +1,6 @@
 {
   "name": "@mobilabs/es6kadoo",
-  "version": "3.0.0-beta.1.4",
+  "version": "3.0.0-beta.1.5",
   "description": "A template for writing pure ES6 Javascript libraries",
   "main": "_dist/lib/es6kadoo.js",
   "minified": "_dist/lib/es6kadoo.min.js",
@@ -54,7 +54,7 @@
     "postpack": "",
 
     "doc:site:web": " --- DOCUMENTING --- ",
-    "doc:site:init": "kasar xxx orion run once only",
+    "doc:site:init": "kasar init --theme <theme-name>",
     "doc:site:build": "kasar build",
     "doc:site:watch": "kasar watch",
     "doc:site:start": "kasar serve --port $1",
@@ -96,7 +96,7 @@
     "mocha": "^11.7.5",
     "nodemon": "^3.1.14",
     "terser": "^5.47.1",
-    "@mobilabs/es6lib": "3.0.0-beta.1.4"
+    "@mobilabs/es6lib": "3.0.0-beta.1.8"
   },
   "c8": {
     "include": [

@@ -27,7 +27,7 @@
 
 
 // -- Vendor Modules
-import fs from 'fs';
+import fs from 'node:fs';
 import path from 'path';
 import nopt from 'nopt';
 

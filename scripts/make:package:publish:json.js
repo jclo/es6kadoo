@@ -27,7 +27,7 @@
 
 
 // -- Vendor Modules
-import fs from 'fs';
+import fs from 'node:fs';
 import nopt from 'nopt';
 
 
@@ -131,7 +131,7 @@ function _dopublish(done) {
   pubpack.unpkg = pack.unpkg;
   pubpack.module = pack.module;
 
-  pubpack.bin = pack.bin;
+  // pubpack.bin = pack.bin;
   // pubpack.type = pack.type;
 
   pubpack.scripts = {};
